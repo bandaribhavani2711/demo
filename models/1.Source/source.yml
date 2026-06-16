@@ -1,0 +1,16 @@
+version: 2
+ 
+sources:
+  - name: demo_sources
+    description: Workday Procurement source tables from data lake
+    database:  |
+      {%- if  target.name == "dev" -%} DB1
+      {%- elif target.name == "qa"  -%} DB1
+      {%- elif target.name == "uat"  -%} DB1
+      {%- elif target.name == "prod"  -%}  DB1
+      {%- else -%} invalid_database
+      {%- endif -%}
+    schema: PUBLIC
+    tables:
+      - name: PRODUCTS
+        description: Customized purchase order data with line-level details
