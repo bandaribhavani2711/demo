@@ -1,0 +1,23 @@
+{{ config(materialized='view') }}
+/*
+SELECT
+    CATEGORY,
+    BRAND,
+    COUNT(*) AS TOTAL_PURCHASES,
+    SUM(QUANTITY) AS TOTAL_QUANTITY_SOLD,
+    SUM(TOTAL_AMOUNT) AS TOTAL_SALES,
+    AVG(UNIT_PRICE) AS AVG_PRODUCT_PRICE
+FROM {{ ref('stg_demo') }}
+GROUP BY
+    CATEGORY,
+    BRAND
+*/
+{{ config(materialized='view') }}
+
+SELECT
+    BRAND,
+    SUM(TOTAL_AMOUNT) AS TOTAL_REVENUE,
+    SUM(QUANTITY) AS TOTAL_QUANTITY_SOLD,
+    COUNT(CUSTOMER_ID) AS TOTAL_CUSTOMERS
+FROM {{ ref('stg_demo') }}
+GROUP BY BRAND
