@@ -3,8 +3,7 @@ version: 2
 sources:
   - name: demo_sources
     description: Workday Procurement source tables from data lake
-    database:  |
-      DB1
+    database:  DB1
     schema: PUBLIC
     tables:
       - name: PRODUCTS
