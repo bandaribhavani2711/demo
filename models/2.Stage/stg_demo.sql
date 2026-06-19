@@ -41,4 +41,4 @@ SELECT
 
 FROM {{ source('demo_sources', 'CUSTOMER') }} AS c
 INNER JOIN {{ source('demo_sources', 'PRODUCTS') }} AS p
-    ON c.PRODUCT_ID = p.PRODUCT_ID
+    ON c.product_id = p.product_id
