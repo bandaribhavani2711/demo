@@ -3,7 +3,7 @@
 {{
     config(
         target_database='DB1',
-        target_schema='SNAPSHOTS',
+        target_schema='PUBLIC',
         unique_key='PRODUCT_ID',
 
         strategy='check',
